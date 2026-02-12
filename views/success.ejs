@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Successful</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Application Submitted Successfully</h1>
+        </header>
+        <main>
+            <section class="success-message">
+                <div class="success-icon">✓</div>
+                <h2>Congratulations!</h2>
+                <p>Your application has been submitted successfully.</p>
+                <div class="registration-details">
+                    <h3>Your Registration ID:</h3>
+                    <p class="registration-id"><%= regId %></p>
+                    <p class="note">Please save this ID for future reference and to download your Admit Card.</p>
+                </div>
+                <div class="button-group">
+                    <a href="/admitcard/<%= regId %>" class="btn btn-primary">View Admit Card</a>
+                    <a href="/" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

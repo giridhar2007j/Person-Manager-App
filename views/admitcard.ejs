@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admit Card</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .admit-card {
+            border: 2px solid #333;
+            padding: 12px;
+            background: white;
+            max-width: 100%;
+            margin: 5px auto;
+            box-shadow: none;
+            font-size: 13px;
+        }
+        .admit-card-header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+        }
+        .admit-card-header h2 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .admit-card-header p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+        }
+        .card-top-section {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 10px;
+            align-items: flex-start;
+        }
+        .photo-section {
+            flex-shrink: 0;
+        }
+        .photo-section img {
+            width: 90px;
+            height: 110px;
+            border: 2px solid #333;
+        }
+        .info-section {
+            flex: 1;
+        }
+        .card-row {
+            display: flex;
+            margin: 3px 0;
+            padding: 2px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 12px;
+        }
+        .card-label {
+            font-weight: bold;
+            width: 30%;
+        }
+        .card-value {
+            width: 70%;
+        }
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 2px solid #333;
+        }
+        .signature-item {
+            text-align: center;
+            flex: 1;
+        }
+        .signature-item img {
+            width: 110px;
+            height: 50px;
+            border-bottom: 1px solid #000;
+            display: block;
+        }
+        .signature-item p {
+            margin: 2px 0 0 0;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admit Card</h1>
+        </header>
+        <main>
+            <% if (applicant) { %>
+                <div class="admit-card">
+                    <div class="admit-card-header">
+                        <h2>GOVERNMENT JOB PORTAL</h2>
+                        <p>Admit Card</p>
+                    </div>
+                    
+                    <div class="card-top-section">
+                        <div class="photo-section">
+                            <img src="/uploads/photos/<%= applicant.photo %>" alt="Candidate Photo">
+                        </div>
+                        <div class="info-section">
+                            <div class="card-row">
+                                <div class="card-label">Reg. ID:</div>
+                                <div class="card-value"><strong><%= applicant.registrationId %></strong></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">Name:</div>
+                                <div class="card-value"><%= applicant.fullName %></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">Father's Name:</div>
+                                <div class="card-value"><%= applicant.fatherName %></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">DOB:</div>
+                                <div class="card-value"><%= applicant.dob.toLocaleDateString() %></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">Gender:</div>
+                                <div class="card-value"><%= applicant.gender %></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">Category:</div>
+                                <div class="card-value"><%= applicant.category %></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">Mobile:</div>
+                                <div class="card-value"><%= applicant.mobile %></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">Email:</div>
+                                <div class="card-value"><%= applicant.email %></div>
+                            </div>
+                            <div class="card-row">
+                                <div class="card-label">Qualification:</div>
+                                <div class="card-value"><%= applicant.graduation %> - <%= applicant.percentage %>%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="signature-section">
+                        <div class="signature-item">
+                            <img src="/uploads/signatures/<%= applicant.signature %>" alt="Signature">
+                            <p>Applicant Signature</p>
+                        </div>
+                        <div class="signature-item">
+                            <p style="padding-top: 35px;">Official Stamp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-group" style="margin-top: 20px;">
+                    <button onclick="window.print()" class="btn btn-primary">Print Admit Card</button>
+                    <a href="/" class="btn btn-secondary">Back to Home</a>
+                </div>
+            <% } else { %>
+                <section class="error-message">
+                    <h2>Application Not Found</h2>
+                    <p>The registration ID you entered could not be found in our system.</p>
+                    <a href="/" class="btn btn-secondary">Back to Home</a>
+                </section>
+            <% } %>
+        </main>
+    </div>
+</body>
+</html>
