@@ -11,11 +11,16 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "body-parser": "^2.2.2",
+    "cloudinary": "^1.41.3",
     "dotenv": "^17.2.4",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "mongoose": "^9.2.1",
-    "multer": "^2.0.2"
+    "mongoose-paginate-v2": "^1.9.1",
+    "multer": "^2.0.2",
+    "multer-storage-cloudinary": "^4.0.0"
   }
 }

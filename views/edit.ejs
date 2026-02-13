@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Application</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Edit Application</h1>
+        </header>
+        <main>
+            <form method="POST" action="/edit/<%= person._id %>" enctype="multipart/form-data" class="form">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" value="<%= person.name %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age *</label>
+                    <input type="number" id="age" name="age" min="18" value="<%= person.age %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" value="<%= person.email %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Photo/Image (jpg, png) - Leave empty to keep existing image</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <% if (person.image) { %>
+                        <p><small>Current image: <%= person.image %></small></p>
+                    <% } %>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">Update Application</button>
+                    <a href="/" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

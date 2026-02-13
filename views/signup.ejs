@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .signup-container { max-width: 400px; margin: 50px auto; }
+        .signup-card { background-color: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .signup-card h2 { text-align: center; margin-bottom: 25px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; }
+        .form-group input:focus { outline: none; border-color: #007bff; box-shadow: 0 0 0 2px rgba(0,123,255,0.25); }
+        .button-group { display: flex; gap: 10px; margin-top: 20px; }
+        .button-group button { flex: 1; padding: 10px; font-size: 14px; border: none; border-radius: 4px; cursor: pointer; }
+        .button-group .btn-primary { background-color: #007bff; color: white; }
+        .button-group .btn-primary:hover { background-color: #0056b3; }
+        .signup-link { text-align: center; margin-top: 15px; font-size: 14px; }
+        .signup-link a { color: #007bff; text-decoration: none; }
+        .signup-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="signup-container">
+            <div class="signup-card">
+                <h2>Create Account</h2>
+                <form method="POST" action="/signup">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" minlength="6" required>
+                        <small style="color: #666;">Minimum 6 characters</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password *</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" minlength="6" required>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn-primary">Sign Up</button>
+                    </div>
+                </form>
+
+                <div class="signup-link">
+                    Already have an account? <a href="/login">Login here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
